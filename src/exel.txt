@@ -1,0 +1,19 @@
+import * as XLSX from "xlsx";
+
+
+
+const exportToExcel = () => {
+    const formattedData = stateList.map((item, index) => ({
+      N: index + 1,
+      "Direktor F.I.SH": item.name,
+      "Passport Seriyasi": item.passport,
+      "Jinsi": item.gender,
+      "Manzili": item.address,
+      "Telefon": item.phone,
+    }));
+
+    const ws = XLSX.utils.json_to_sheet(formattedData);
+    const wb = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, "Data");
+    XLSX.writeFile(wb, "StateData.xlsx");
+  };
