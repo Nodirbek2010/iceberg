@@ -7,7 +7,7 @@ function Administrators() {
   ];
 
   return (
-    <div className="bg-white shadow-md p-4 rounded-lg">
+    <div className="ml-64 p-4 bg-white shadow-md rounded-lg">
       <h2 className="text-2xl font-bold mb-4">Administrators</h2>
       <ul className="space-y-3">
         {administrators.map((admin) => (

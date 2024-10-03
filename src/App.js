@@ -7,6 +7,8 @@ import Administrators from './components/admin/Xodimlar/Admin';
 import Login from './components/admin/Login/Loogin';
 import HomePage from './components/client/Home/HomePage';
 import IDPage from './components/admin/id/Idpage';
+import Qabul from './components/admin/Qabul/qabul';
+
 
 function App() {
   return (
@@ -25,6 +27,8 @@ function App() {
               <Route path="admin/directors" element={<DirectorTable />} />
               <Route path="admin/administrators" element={<Administrators />} />
               <Route path="admin/id" element={<IDPage />} />
+              <Route path="admin/qabul" element={<Qabul/>} />
+        
             </Routes>
           </div>
         </div>
