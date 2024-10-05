@@ -168,12 +168,12 @@ const Qabul = () => {
             <div>
               <label className="block font-semibold mb-2">Ota Onasining telefon raqami</label>
               <input
-                type="email"
+                type="text"
                 name="email"
                 value={formData.email}
                 onChange={handleInputChange}
                 className="border rounded w-full py-2 px-3"
-                placeholder="Elektron pochta"
+                placeholder="Telefon raqami"
               />
             </div>
 
