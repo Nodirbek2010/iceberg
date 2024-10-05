@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
+import { FaChalkboardTeacher, FaPhone } from 'react-icons/fa';
 
 const Qabul = () => {
-  const [step, setStep] = useState(1); // Track the current step
-  const [selectedSubject, setSelectedSubject] = useState(null); // Track the selected subject
-  const [selectedGroup, setSelectedGroup] = useState(null); // Track the selected group
-  const [formData, setFormData] = useState({ // Store form data
+  const [step, setStep] = useState(1); 
+  const [selectedSubject, setSelectedSubject] = useState(null); 
+  const [selectedGroup, setSelectedGroup] = useState(null); 
+  const [formData, setFormData] = useState({ 
     surname: '',
     name: '',
     phone: '',
@@ -40,10 +41,9 @@ const Qabul = () => {
         startTime: '14:00',
         endTime: '16:00',
         teacherPhone: '+99890000000',
-       
       },
     ],
-    Fizika: [
+    Biologiya: [
       {
         id: 3,
         teacher: 'Turgunov S.',
@@ -51,7 +51,6 @@ const Qabul = () => {
         startTime: '09:00',
         endTime: '11:00',
         teacherPhone: '+998900000000',
-       
       },
     ],
     Ingliz_tili: [
@@ -65,7 +64,7 @@ const Qabul = () => {
         details: 'Grammatika va soʻz boyligi.',
       },
     ],
-    Tarix: [
+    Rustili: [
       {
         id: 5,
         teacher: 'Rahimov R.',
@@ -73,7 +72,6 @@ const Qabul = () => {
         startTime: '16:00',
         endTime: '18:00',
         teacherPhone: '+998900000000',
- 
       },
     ],
   };
@@ -100,12 +98,33 @@ const Qabul = () => {
     setSelectedGroup(group);
   };
 
+  // Function to go back to the first step
+  const handleCancel = () => {
+    setStep(1); // Only reset the step to 1
+    setSelectedSubject(null); // Optionally reset subject selection
+    setSelectedGroup(null); // Optionally reset group selection
+  };
+
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center">
       <div className="bg-white p-10 rounded-lg shadow-lg w-full max-w-4xl">
         <h1 className="text-2xl font-bold mb-6">
           {step === 1 ? "Yangi talaba qo'shish" : 'Fan va guruh tanlash'}
         </h1>
+
+        {/* Step Progress Bar */}
+        <div className="mb-6">
+          <div className="flex mb-4">
+            <div className={`flex-1 text-center ${step === 1 ? 'font-bold text-blue-600' : 'text-gray-400'}`}>1. Talaba ma'lumotlari</div>
+            <div className={`flex-1 text-center ${step === 2 ? 'font-bold text-blue-600' : 'text-gray-400'}`}>2. Fan va guruh</div>
+          </div>
+          <div className="bg-gray-300 h-1">
+            <div
+              className={`bg-blue-600 h-1`}
+              style={{ width: `${(step - 1) * 50}%` }}
+            ></div>
+          </div>
+        </div>
 
         {/* Step 1: Student Information Form */}
         {step === 1 && (
@@ -182,13 +201,13 @@ const Qabul = () => {
             </div>
 
             <div className="flex gap-10">
-              <button className="bg-blue-500 text-white py-2 px-4 rounded mt-4 hover:bg-blue-600">
+              <button className="bg-[#354e94] text-white py-2 px-4 rounded mt-4 hover:bg-blue-600">
                 Saqlash
               </button>
               <button
                 type="button"
-                className="bg-blue-500 text-white py-2 px-4 rounded mt-4 hover:bg-blue-600"
-                onClick={goToNextStep} // Move to the next step
+                className="bg-[#354e94] text-white py-2 px-4 rounded mt-4 hover:bg-blue-600"
+                onClick={goToNextStep} 
               >
                 Keyingisi
               </button>
@@ -228,44 +247,36 @@ const Qabul = () => {
                   {groups[selectedSubject.name.replace(' ', '_')]?.map((group) => (
                     <div
                       key={group.id}
-                      className={`border rounded-lg p-4 shadow-lg cursor-pointer ${
+                      className={`bg-gradient-to-r from-purple-400 to-blue-500 rounded-lg p-4 cursor-pointer ${
                         selectedGroup && selectedGroup.id === group.id
-                          ? 'border-green-500'
-                          : 'border-gray-300'
+                          ? 'ring ring-blue-300'
+                          : ''
                       }`}
                       onClick={() => handleGroupSelect(group)}
                     >
-                      <h3 className="text-lg font-semibold">
-                        O'qituvchi: {group.teacher}
-                      </h3>
-                      <p className="text-gray-600">
-                        Dars vaqti: {group.startTime} - {group.endTime}
-                      </p>
-                      <p className="text-gray-600">
-                        O'qituvchi telefon raqami: {group.teacherPhone}
-                      </p>
-                      <p className="text-gray-600">{group.details}</p>
+                      <h3 className="text-lg font-semibold">{group.teacher}</h3>
+                      <p>{group.time}</p>
+                      <p>{group.details}</p>
                     </div>
                   ))}
                 </div>
               </>
             )}
 
-            {/* Action buttons */}
-            <div className="flex justify-end gap-4 mt-6">
+            {/* Back and Next Buttons */}
+            <div className="flex justify-between mt-6">
               <button
-                className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600"
-                onClick={() => setStep(1)} // Go back to step 1
+                className="bg-gray-400 text-white py-2 px-4 rounded mt-4 hover:bg-gray-500"
+                onClick={handleCancel}
               >
-                Oldingi
+                Bekor qilish
               </button>
               <button
-                className={`bg-blue-500 text-white py-2 px-4 rounded ${
-                  !selectedGroup ? 'opacity-50 cursor-not-allowed' : ''
-                }`}
-                disabled={!selectedGroup} // Disable if no group selected
+                className="bg-[#354e94] text-white py-2 px-4 rounded mt-4 hover:bg-blue-600"
+                disabled={!selectedGroup}
+               
               >
-                Tasdiqlash
+                Saqlash
               </button>
             </div>
           </div>
