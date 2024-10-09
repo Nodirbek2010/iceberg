@@ -8,6 +8,8 @@ import Login from './components/admin/Login/Loogin';
 import HomePage from './components/client/Home/HomePage';
 import IDPage from './components/admin/id/Idpage';
 import Qabul from './components/admin/Qabul/qabul';
+import Tolovlar from './components/admin/Tolovlar/Tolovlar';
+import StudentIDPage from './components/admin/Tolovlar/TolovlarIdPage'; 
 
 // Admin Layout Component
 function AdminLayout({ children }) {
@@ -44,6 +46,8 @@ function App() {
                 <Route path="administrators" element={<Administrators />} />
                 <Route path="id" element={<IDPage />} />
                 <Route path="qabul" element={<Qabul />} />
+                <Route path="Tolovlar" element={<Tolovlar />} />
+                <Route path="student/:id" element={<StudentIDPage />} /> {/* Route for StudentIDPage */}
               </Routes>
             </AdminLayout>
           }

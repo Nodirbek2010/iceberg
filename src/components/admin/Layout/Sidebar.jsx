@@ -4,6 +4,7 @@ import { IoMdHome } from "react-icons/io";
 import { IoPeople } from "react-icons/io5";
 import { FaUserPlus } from "react-icons/fa";
 import LogoAdmin from "../../../assest/images/Logotip.PNG";
+import { FaMoneyBills } from "react-icons/fa6";
 
 function Sidebar() {
   return (
@@ -31,6 +32,12 @@ function Sidebar() {
           <Link to="/admin/qabul" className="flex items-center text-gray-800 hover:text-blue-600">
             <FaUserPlus className="mr-2 text-lg" />
             <span className="font-medium">Qabul</span>
+          </Link>
+        </li>
+        <li className="rounded-lg hover:bg-blue-100 p-2">
+          <Link to="/admin/Tolovlar" className="flex items-center text-gray-800 hover:text-blue-600">
+            <FaMoneyBills className="mr-2 text-lg" />
+            <span className="font-medium">Tolovlar</span>
           </Link>
         </li>
       </ul>
