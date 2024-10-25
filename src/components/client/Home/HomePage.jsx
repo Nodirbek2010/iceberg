@@ -1,16 +1,14 @@
 import "./HomePage.css"
-import Example_Rasm from "../../assest/images/Rasm.png"
-import Main_Photo from "../../assest/images/smiley-boy-with-book-head.png"
-import Telegram from "../../assest/icons/telegram-logo-telegram-logo-transparent-telegram-icon-transparent-free-free-png.webp"
-import Instagram from "../../assest/icons/instagram-vector-social-media-icon-7-june-2021-bangkok-thailand.png"
-import Facebook from "../../assest/icons/e44a55eb-b33a-4334-a756-b75fa05b62a3-removebg-preview.png"
-import Uzbek_Ball from "../../assest/icons/png-transparent-uzbekistan-flags-icon-removebg-preview.png"
-import Bell_notifications from "../../assest/icons/pngtree-bell-vector-icon-png-image_470681-removebg-preview.png"
-import email_notifications from "../../assest/icons/email.logo.png"
+import Example_Rasm from "../../../assest/images/Rasm.png"
+import Main_Photo from "../../../assest/images/smiley-boy-with-book-head.png"
+import Telegram from "../../../assest/icons/telegram-logo-telegram-logo-transparent-telegram-icon-transparent-free-free-png.webp"
+import Instagram from "../../../assest/icons/instagram-vector-social-media-icon-7-june-2021-bangkok-thailand.png"
+import Facebook from "../../../assest/icons/e44a55eb-b33a-4334-a756-b75fa05b62a3-removebg-preview.png"
+import Uzbek_Ball from "../../../assest/icons/png-transparent-uzbekistan-flags-icon-removebg-preview.png"
+import Bell_notifications from "../../../assest/icons/pngtree-bell-vector-icon-png-image_470681-removebg-preview.png"
+import email_notifications from "../../../assest/icons/email.logo.png"
 // import avatar from "./components/../images/images (4).jpg"
 import { useEffect } from 'react';
-
-
 function HomePage() {
 
   useEffect(() => {

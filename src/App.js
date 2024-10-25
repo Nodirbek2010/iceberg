@@ -7,7 +7,9 @@ import Administrators from './components/admin/Xodimlar/Admin';
 import Login from './components/admin/Login/Loogin';
 import HomePage from './components/client/Home/HomePage';
 import IDPage from './components/admin/id/Idpage';
-
+import ClientTable from './components/client/xodimlar/Xodimlar-client';
+import Clientstrator from './components/client/xodimlar/Admin';
+import Group from './components/admin/groups/group';
 function App() {
   return (
     <BrowserRouter>
@@ -21,10 +23,15 @@ function App() {
         <div className="flex-grow bg-gray-100 min-h-screen">
           <TopBar />
           <div className="p-6">
+            <Routes path="/admin/">
+              <Route path="/admin/directors" element={<DirectorTable />} />
+              <Route path="/admin/group" element={<Group/>} />
+              <Route path="/admin/administrators" element={<Administrators />} />
+              <Route path="/admin/id" element={<IDPage />} />
+            </Routes>
             <Routes>
-              <Route path="admin/directors" element={<DirectorTable />} />
-              <Route path="admin/administrators" element={<Administrators />} />
-              <Route path="admin/id" element={<IDPage />} />
+              <Route path='/client/adminstrator' element={<Clientstrator/>}/>
+              <Route path='/client/direktor' element={<ClientTable/>}/>
             </Routes>
           </div>
         </div>
@@ -32,6 +39,5 @@ function App() {
     </BrowserRouter>
   );
 }
-
 export default App;
 

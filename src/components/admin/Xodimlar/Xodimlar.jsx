@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate }   from "react-router-dom";
 import * as XLSX from "xlsx";
 
 function StateTable() {
@@ -13,7 +13,7 @@ function StateTable() {
     address: "",
     phone: "",
   });
-  const [image, setImage] = useState(null); // Add state for image
+  const [image, setImage] = useState(null);
   const [stateList, setStateList] = useState([]);
 
   useEffect(() => {
@@ -22,7 +22,6 @@ function StateTable() {
       setStateList(JSON.parse(savedStateList));
     }
   }, []);
-
   useEffect(() => {
     if (stateList.length > 0) {
       localStorage.setItem("stateList", JSON.stringify(stateList));
@@ -129,7 +128,7 @@ function StateTable() {
               value={state.address}
               onChange={(e) => setState({ ...state, address: e.target.value })}
               className="w-full p-2 border border-gray-300 rounded mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
+            required />
             <input
               type="text"
               placeholder="Phone"
@@ -179,6 +178,7 @@ function StateTable() {
           <thead>
             <tr className="text-left bg-gray-100">
               <th className="py-2 px-4 border-b">N</th>
+              <th className="py-2 px-4 border-b"></th>
               <th className="py-2 px-4 border-b">Direktor F.I.SH</th>
               <th className="py-2 px-4 border-b">Passport Seriyasi</th>
               <th className="py-2 px-4 border-b">Jinsi</th>
@@ -191,6 +191,9 @@ function StateTable() {
             {stateList.map((item, index) => (
               <tr className="hover:bg-gray-100" key={index}>
                 <td className="py-2 px-4 border-b">{index + 1}</td>
+                <div className="w-[100px] h-[50px] border-red-700">
+                <img src={item.image} className="h-25 w-25"/>
+                </div>
                 <td className="py-2 px-4 border-b">{item.name}</td>
                 <td className="py-2 px-4 border-b">{item.passport}</td>
                 <td className="py-2 px-4 border-b">{item.gender}</td>
