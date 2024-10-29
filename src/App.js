@@ -7,27 +7,17 @@ import Administrators from './components/admin/Xodimlar/Admin';
 import Login from './components/admin/Login/Loogin';
 import HomePage from './components/client/Home/HomePage';
 import IDPage from './components/admin/id/Idpage';
+import ClientTable from './components/client/xodimlar/Xodimlar-client';
+import Clientstrator from './components/client/xodimlar/Admin';
+import Group from './components/admin/groups/group';
 
-function App() {
+function AdminLayout({ children }) {
   return (
-    <BrowserRouter>
-      <Routes>
-
-        <Route path="/admin" element={<Login />} />
-        <Route path="/" element={<HomePage />} />
-      </Routes>
-      <div className="flex">
-        <Sidebar />
-        <div className="flex-grow bg-gray-100 min-h-screen">
-          <TopBar />
-          <div className="p-6">
-            <Routes>
-              <Route path="admin/directors" element={<DirectorTable />} />
-              <Route path="admin/administrators" element={<Administrators />} />
-              <Route path="admin/id" element={<IDPage />} />
-            </Routes>
-          </div>
-        </div>
+    <div className="flex">
+      <Sidebar />
+      <div className="flex-grow bg-gray-100 min-h-screen">
+        <TopBar />
+        <div className="p-6">{children}</div>
       </div>
     </div>
   );
@@ -52,15 +42,18 @@ function App() {
                 <Route path="directors" element={<DirectorTable />} />
                 <Route path="administrators" element={<Administrators />} />
                 <Route path="id" element={<IDPage />} />
-                <Route path="qabul" element={<Qabul />} />
-                <Route path="Tolovlar" element={<Tolovlar />} />
-                <Route path="student/:id" element={<StudentIDPage />} /> {/* Route for StudentIDPage */}
+                <Route path="group" element={<Group />} />
               </Routes>
             </AdminLayout>
           }
         />
+
+        {/* Client Routes */}
+        <Route path="/client/administrator" element={<Clientstrator />} />
+        <Route path="/client/director" element={<ClientTable />} />
       </Routes>
     </Router>
   );
 }
+
 export default App;
